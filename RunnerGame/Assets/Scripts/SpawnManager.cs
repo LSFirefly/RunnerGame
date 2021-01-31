@@ -10,14 +10,11 @@ public class SpawnManager : MonoBehaviour
     private GameManager gameManager;
 
     private float itemStartDelay = 0.1f;
-    private float itemSpawnInterval = 0.3f;
-    private float treeSpawnInterval = 1.5f;
-    private float treeStartDelay = 1.5f;
-
+    public float itemSpawnInterval = 0.3f;
+   
     void Start()
     {
         InvokeRepeating("SpawnRandomItem", itemStartDelay, itemSpawnInterval);
-        InvokeRepeating("SpawnRandomTree", treeStartDelay, treeSpawnInterval);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -26,18 +23,7 @@ public class SpawnManager : MonoBehaviour
 
     }
     
-    void SpawnRandomTree()
-    {
-        if (gameManager.isGameActive)
-        {
-            int treesIndex = Random.Range(0, trees.Length);
-            Vector3 itemPos1 = new Vector3(Random.Range(-6, -4), 0, player.transform.position.z + 7);
-            Vector3 itemPos2 = new Vector3(Random.Range(4, 6), 0, player.transform.position.z + 7);
-
-            Instantiate(trees[treesIndex], itemPos1, trees[treesIndex].transform.rotation);
-            Instantiate(trees[treesIndex], itemPos2, trees[treesIndex].transform.rotation);
-        }
-    }
+   
 
     void SpawnRandomItem()
     {

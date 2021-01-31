@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveBack : MonoBehaviour
 {
     private GameManager gameManager;
-    private float speed = 2;
+   // private float speed = 2;
     
     void Start()
     {
@@ -16,7 +16,7 @@ public class MoveBack : MonoBehaviour
     {
         if (gameManager.isGameActive)
         {
-            transform.Translate(Vector3.back * Time.deltaTime * speed);
+            transform.Translate(Vector3.back * Time.deltaTime * gameManager.speed);
         }
         
     }

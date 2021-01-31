@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     {
         playerAudio = GetComponent<AudioSource>();
         playerAnim = GetComponent<Animator>();
+        
+       // playerAnim.speed = gameManager.speed;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
        
     }
